@@ -1,0 +1,24 @@
+{
+  "name": "atom-haskell-tslint-rules",
+  "version": "0.0.1",
+  "description": "TSLint rules used in atom-haskell",
+  "main": "tslint.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atom-haskell/atom-haskell-tslint-rules.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atom-haskell/atom-haskell-tslint-rules/issues"
+  },
+  "homepage": "https://github.com/atom-haskell/atom-haskell-tslint-rules#readme",
+  "dependencies": {
+    "tslint-config-standard": "^6.0.1",
+    "tslint-react": "^3.2.0",
+    "tslint-strict-null-checks": "^1.0.0"
+  }
+}
