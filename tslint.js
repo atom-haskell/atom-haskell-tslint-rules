@@ -7,13 +7,18 @@ module.exports = {
       'typeCheck': true
     },
     'rules': {
-      'no-uninitialized': [true, "properties"],
+      'no-uninitialized': [true, 'properties'],
       'quotemark': [true, 'single', 'jsx-double', 'avoid-escape'],
       'jsdoc-format': false,
       'trailing-comma': [
         true,
         {
-          'multiline': 'always',
+          'multiline': {
+            'objects': 'always',
+            'arrays': 'always',
+            'functions': 'always',
+            'typeLiterals': 'never'
+          },
           'singleline': 'never'
         }
       ],
@@ -30,8 +35,9 @@ module.exports = {
       'interface-name': false,
       'ban-types': [],
       'no-string-literal': true,
-      'space-before-function-paren': false,
+      'space-before-function-paren': [true, {'anonymous': 'always', 'named': 'never', 'asyncArrow': 'always'}],
       'no-floating-promises': false,
-      'member-access': true
+      'member-access': true,
+      'jsx-no-string-ref': false,
     }
 }
