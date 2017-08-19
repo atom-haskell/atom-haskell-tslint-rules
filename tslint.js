@@ -7,7 +7,7 @@ module.exports = {
       'typeCheck': true
     },
     'rules': {
-      'no-uninitialized': [true, "variables", "properties"],
+      'no-uninitialized': [true, "properties"],
       'quotemark': [true, 'single', 'jsx-double', 'avoid-escape'],
       'jsdoc-format': false,
       'trailing-comma': [
