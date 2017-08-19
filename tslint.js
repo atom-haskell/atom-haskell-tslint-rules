@@ -1,12 +1,14 @@
 module.exports = {
     'extends': ['tslint-config-standard', 'tslint-react'],
     'rulesDirectory': [
-      '../tslint-strict-null-checks/rules'
+      '../tslint-strict-null-checks/rules',
+      'rules'
     ],
     'linterOptions': {
       'typeCheck': true
     },
     'rules': {
+      "totality-check": true,
       'no-uninitialized': [true, 'properties'],
       'quotemark': [true, 'single', 'jsx-double', 'avoid-escape'],
       'jsdoc-format': false,
