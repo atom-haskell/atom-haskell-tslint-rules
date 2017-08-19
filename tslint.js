@@ -1,13 +1,13 @@
 module.exports = {
     'extends': ['tslint-config-standard', 'tslint-react'],
     'rulesDirectory': [
-      'node_modules/tslint-strict-null-checks/rules'
+      '../tslint-strict-null-checks/rules'
     ],
     'linterOptions': {
       'typeCheck': true
     },
     'rules': {
-      'no-uninitialized': [true, "variables", "properties"]
+      'no-uninitialized': [true, "variables", "properties"],
       'quotemark': [true, 'single', 'jsx-double', 'avoid-escape'],
       'jsdoc-format': false,
       'trailing-comma': [
@@ -27,7 +27,6 @@ module.exports = {
       'no-non-null-assertion': true,
       'no-null-keyword': true,
       'no-var-requires': true,
-      'no-uninitialized-class-properties': true,
       'interface-name': false,
       'ban-types': [],
       'no-string-literal': true,

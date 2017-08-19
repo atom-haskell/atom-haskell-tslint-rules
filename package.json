@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/atom-haskell/atom-haskell-tslint-rules.git"
   },
-  "author": "",
+  "author": "Nikolay Yakimov",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/atom-haskell/atom-haskell-tslint-rules/issues"
