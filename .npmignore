@@ -1,3 +1,4 @@
 rules/totalityCheckRule.ts
 tsconfig.json
+tslint.json
 .gitignore

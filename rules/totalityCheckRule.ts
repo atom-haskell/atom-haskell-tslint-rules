@@ -7,7 +7,7 @@ export class Rule extends Lint.Rules.TypedRule {
     ruleName: 'totality-check',
     description: 'Checks if if/switch exhausts type union',
     optionsDescription: 'Not configurable.',
-    options: null,
+    options: null, // tslint:disable-line: no-null-keyword
     optionExamples: [true],
     type: 'functionality',
     typescriptOnly: true,
@@ -29,15 +29,6 @@ function walk(ctx: Lint.WalkContext<void>, tc: ts.TypeChecker) {
       return lt.value
     }
   }
-  function isEqualityExpr(e: ts.Expression) {
-    if (e.kind !== ts.SyntaxKind.BinaryExpression) return false
-    const binexp = e as ts.BinaryExpression
-    if (binexp.operatorToken.kind !== ts.SyntaxKind.EqualsEqualsToken
-      && binexp.operatorToken.kind !== ts.SyntaxKind.EqualsEqualsEqualsToken) {
-      return false
-    }
-    return true
-  }
   function getUnionTypes(e: ts.Expression) {
     const type = tc.getTypeAtLocation(e)
     if (type.flags & ts.TypeFlags.Union) {
@@ -47,7 +38,6 @@ function walk(ctx: Lint.WalkContext<void>, tc: ts.TypeChecker) {
       }
     }
   }
-
   function check(node: ts.IfStatement, sourceFile: ts.SourceFile) {
     let switchVariable: ts.Expression | undefined
     const cases = everyCase(node, (expr) => {
@@ -60,49 +50,46 @@ function walk(ctx: Lint.WalkContext<void>, tc: ts.TypeChecker) {
     })
     return {cases, switchVariable}
   }
-
-  function everyCase({ expression, elseStatement }: ts.IfStatement, test: (e: ts.Expression) => boolean): Array<string | number> | null {
+  function everyCase({ expression, elseStatement }: ts.IfStatement, test: (e: ts.Expression) => boolean): Array<string | number> | undefined {
     if (elseStatement && !utils.isIfStatement(elseStatement)) {
-      return null
+      return undefined
     }
     const ec = everyCondition(expression, test)
     if (!ec) {
-      return null
+      return undefined
     }
     if (!elseStatement) {
       return ec
     }
     const ec2 = everyCase(elseStatement, test)
     if (!ec2) {
-      return null
+      return undefined
     }
     return ec.concat(ec2)
   }
-
-  function everyCondition(node: ts.Expression, test: (e: ts.Expression) => boolean): Array<string | number> | null {
+  function everyCondition(node: ts.Expression, test: (e: ts.Expression) => boolean): Array<string | number> | undefined {
     if (!utils.isBinaryExpression(node)) {
-      return null
+      return undefined
     }
-
     const { operatorToken, left, right } = node
     switch (operatorToken.kind) {
       case ts.SyntaxKind.BarBarToken: {
         const l = everyCondition(left, test)
-        if (!l) return null
+        if (!l) return undefined
         const r = everyCondition(right, test)
-        if (!r) return null
+        if (!r) return undefined
         return l.concat(r)
       }
       case ts.SyntaxKind.EqualsEqualsEqualsToken: {
         if (!isSimple(left) || !isSimple(right) || !test(left)) {
-          return null
+          return undefined
         }
         const val = getClauseVal(right)
-        if (val == null) return null
+        if (val === undefined) return undefined
         return [val]
       }
       default:
-        return null
+        return undefined
     }
   }
   return ts.forEachChild(ctx.sourceFile, function cb(node: ts.Node): void {
@@ -119,7 +106,7 @@ function walk(ctx: Lint.WalkContext<void>, tc: ts.TypeChecker) {
       }
     } else if (utils.isIfStatement(node)) {
       const {cases, switchVariable} = check(node, ctx.sourceFile)
-      if (cases !== null && switchVariable != null) {
+      if (cases !== undefined && switchVariable !== undefined) {
         const vv = getUnionTypes(switchVariable)
         if (vv) {
           const fv = vv.filter((v) => cases.indexOf(v) < 0)
