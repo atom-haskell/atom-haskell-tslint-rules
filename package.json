@@ -23,8 +23,8 @@
     "tslint-strict-null-checks": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.24",
-    "tslint": "^5.6.0",
-    "typescript": "^2.4.2"
+    "@types/node": "^8.0.46",
+    "tslint": "^5.8.0",
+    "typescript": "^2.5.3"
   }
 }
