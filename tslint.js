@@ -42,5 +42,10 @@ module.exports = {
       'no-floating-promises': false,
       'member-access': true,
       'jsx-no-string-ref': false,
+      "no-unsafe-any": true,
+      'await-promise': true,
+      'no-floating-promises': true,
+      'no-for-in-array': true,
+      'no-return-await': true,
     }
 }
