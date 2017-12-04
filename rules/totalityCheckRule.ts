@@ -48,7 +48,7 @@ function walk(ctx: Lint.WalkContext<void>, tc: ts.TypeChecker) {
         return true
       }
     })
-    return {cases, switchVariable}
+    return { cases, switchVariable }
   }
   function everyCase({ expression, elseStatement }: ts.IfStatement, test: (e: ts.Expression) => boolean): Array<string | number> | undefined {
     if (elseStatement && !utils.isIfStatement(elseStatement)) {
@@ -98,14 +98,14 @@ function walk(ctx: Lint.WalkContext<void>, tc: ts.TypeChecker) {
       const swnode = node as ts.SwitchStatement
       const values = getUnionTypes(swnode.expression)
       if (values) {
-        const swvals = swnode.caseBlock.clauses.map(({ expression }: ts.CaseClause) => getClauseVal(expression))
+        const swvals = (swnode.caseBlock.clauses as ts.NodeArray<ts.CaseClause>).map(({ expression }: ts.CaseClause) => getClauseVal(expression))
         const fv = values.filter((v) => swvals.indexOf(v) < 0)
         if (fv.length > 0) {
           ctx.addFailureAtNode(node, `Match not exhaustive, values not matched: ${fv.join(', ')}`)
         }
       }
     } else if (utils.isIfStatement(node)) {
-      const {cases, switchVariable} = check(node, ctx.sourceFile)
+      const { cases, switchVariable } = check(node, ctx.sourceFile)
       if (cases !== undefined && switchVariable !== undefined) {
         const vv = getUnionTypes(switchVariable)
         if (vv) {
