@@ -1,6 +1,6 @@
 {
   "name": "atom-haskell-tslint-rules",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "TSLint rules used in atom-haskell",
   "main": "tslint.js",
   "scripts": {
