@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/atom-haskell/atom-haskell-tslint-rules#readme",
   "dependencies": {
-    "tslint-config-standard": "^6.0.1",
+    "tslint-config-standard": "^7.0.0",
     "tslint-react": "^3.2.0",
     "tslint-strict-null-checks": "^1.0.0"
   },
