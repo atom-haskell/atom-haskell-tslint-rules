@@ -49,5 +49,11 @@ module.exports = {
       'no-floating-promises': true,
       'no-for-in-array': true,
       'no-return-await': true,
+      'semicolon': false,
+      'ter-no-sparse-arrays': false,
+      'space-before-function-paren': false,
+      'ter-func-call-spacing': false,
+      'whitespace': false,
+      'object-literal-key-quotes': false,
     }
 }
