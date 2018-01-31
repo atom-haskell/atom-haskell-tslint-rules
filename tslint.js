@@ -10,21 +10,9 @@ module.exports = {
     },
     'rules': {
       "totality-check": true,
-      'no-uninitialized': [true, 'properties'],
-      'quotemark': [true, 'single', 'jsx-double', 'avoid-escape'],
+      'quotemark': false,
       'jsdoc-format': false,
-      'trailing-comma': [
-        true,
-        {
-          'multiline': {
-            'objects': 'always',
-            'arrays': 'always',
-            'functions': 'always',
-            'typeLiterals': 'never'
-          },
-          'singleline': 'never'
-        }
-      ],
+      'trailing-comma': false,
       'no-unbound-method': true,
       'promise-function-async': true,
       'variable-name': [true, 'ban-keywords', 'check-format', 'allow-leading-underscore'],
@@ -39,7 +27,6 @@ module.exports = {
       'interface-name': false,
       'ban-types': [],
       'no-string-literal': true,
-      'no-floating-promises': false,
       'member-access': true,
       'jsx-no-string-ref': false,
       "no-unsafe-any": false,
@@ -55,5 +42,6 @@ module.exports = {
       'whitespace': false,
       'object-literal-key-quotes': false,
       'jsx-no-multiline-js': false,
+      'no-unused-variable': false,
     }
 }

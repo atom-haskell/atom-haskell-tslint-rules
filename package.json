@@ -5,7 +5,7 @@
   "main": "tslint.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "node_modules/.bin/tsc"
+    "prepare": "node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",
@@ -19,12 +19,11 @@
   "homepage": "https://github.com/atom-haskell/atom-haskell-tslint-rules#readme",
   "dependencies": {
     "tslint-config-standard": "^7.0.0",
-    "tslint-react": "^3.2.0",
-    "tslint-strict-null-checks": "^1.0.0"
+    "tslint-react": "^3.4.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.46",
-    "tslint": "^5.8.0",
-    "typescript": "^2.5.3"
+    "@types/node": "^7",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.1"
   }
 }
