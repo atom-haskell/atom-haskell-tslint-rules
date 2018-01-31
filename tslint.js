@@ -42,5 +42,6 @@ module.exports = {
       'object-literal-key-quotes': false,
       'jsx-no-multiline-js': false,
       'no-unused-variable': false,
+      'no-use-before-declare': false,
     }
 }
