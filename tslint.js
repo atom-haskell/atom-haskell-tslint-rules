@@ -2,7 +2,6 @@ var path = require('path')
 module.exports = {
     'extends': ['tslint-config-standard', 'tslint-react'],
     'rulesDirectory': [
-      path.dirname(require.resolve('tslint-strict-null-checks/rules/noUninitializedRule')),
       'rules'
     ],
     'linterOptions': {
