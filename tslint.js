@@ -39,7 +39,6 @@ module.exports = {
       'interface-name': false,
       'ban-types': [],
       'no-string-literal': true,
-      'space-before-function-paren': [true, {'anonymous': 'always', 'named': 'never', 'asyncArrow': 'always'}],
       'no-floating-promises': false,
       'member-access': true,
       'jsx-no-string-ref': false,
