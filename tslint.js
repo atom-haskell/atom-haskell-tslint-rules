@@ -54,5 +54,6 @@ module.exports = {
       'ter-func-call-spacing': false,
       'whitespace': false,
       'object-literal-key-quotes': false,
+      'jsx-no-multiline-js': false,
     }
 }
